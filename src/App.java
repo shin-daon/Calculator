@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        int[] resultArr = new int[10]; // 연산 결과를 저장하는 배열
+        int lastResult = 0; // 배열의 가장 마지막 결과만 저장
+        int count = 0; // 인덱스 증가에 쓰일 변수
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -12,8 +16,7 @@ public class App {
             int secondNum = sc.nextInt();
 
             System.out.print("사칙연산 기호를 입력하세요: ");
-            String str = sc.next();
-            char operator = str.charAt(0);
+            char operator = sc.next().charAt(0); // 한번에 char를 받도록 수정
 
             int result = 0;
 
@@ -40,7 +43,14 @@ public class App {
             }
 
             System.out.println("결과: " + result);
-            System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료)");
+            resultArr[count] = result; // 연산의 결과를 배열에 저장
+            if(count == 9){
+                lastResult = resultArr[count];
+            } // 마지막 결과를 lastResult에 저장
+            System.out.println("resultArr[" + count + "] = " + resultArr[count] + " lastResult = " + lastResult);
+            count++; // 인덱스 증가
+
+            System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료) + (" + count + "회)");
             String comment = sc.next();
 
             if (comment.equals("exit")){
