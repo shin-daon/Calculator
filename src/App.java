@@ -14,6 +14,30 @@ public class App {
         String str = sc.next();
         char operator = str.charAt(0);
 
-        System.out.println(operator);
+        int result = 0;
+
+        switch (operator) {
+            case '+':
+                result = firstNum + secondNum;
+                break;
+            case '-':
+                result = firstNum - secondNum;
+                break;
+            case '*':
+                result = firstNum * secondNum;
+                break;
+            case '/':
+                if (secondNum == 0){
+                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                } else {
+                    result = firstNum / secondNum;
+                }
+                break;
+            default:
+                System.out.println("올바른 기호가 아닙니다.");
+                break;
+        }
+
+        System.out.println("결과: " + result);
     }
 }
