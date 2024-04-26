@@ -10,5 +10,10 @@ public class App {
         System.out.print("두 번째 숫자를 입력하세요: ");
         int secondNum = sc.nextInt();
 
+        System.out.print("사칙연산 기호를 입력하세요: ");
+        String str = sc.next();
+        char operator = str.charAt(0);
+
+        System.out.println(operator);
     }
 }
