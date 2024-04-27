@@ -43,14 +43,21 @@ public class App {
             }
 
             System.out.println("결과: " + result);
-            resultArr[count] = result; // 연산의 결과를 배열에 저장
-            if(count == 9){
-                lastResult = resultArr[count];
-            } // 마지막 결과를 lastResult에 저장
-            System.out.println("resultArr[" + count + "] = " + resultArr[count] + " lastResult = " + lastResult);
-            count++; // 인덱스 증가
 
-            System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료) + (" + count + "회)");
+            if (count <= 9) {
+                resultArr[count] = result;      // 연산의 결과를 배열에 저장
+                lastResult = resultArr[count];  // 마지막 결과를 lastResult에 저장
+                count++;                        // 인덱스 증가
+
+            } else if (count >= 10) {
+                for(int i=1; i<resultArr.length; i++){
+                    resultArr[i-1] = resultArr[i];  // 한칸씩 앞으로 배열 값 이동시키기
+                }
+                resultArr[9] = result;
+                lastResult = result;
+            }
+
+            System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료)");
             String comment = sc.next();
 
             if (comment.equals("exit")){
