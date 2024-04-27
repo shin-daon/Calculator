@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         ArrayList arrList = new ArrayList(); // 배열에서 List로 변경
-        int lastResult = 0; // List의 가장 마지막 결과만 저장
 
         Scanner sc = new Scanner(System.in);
 
@@ -44,13 +43,21 @@ public class App {
 
             System.out.println("결과: " + result);
             arrList.add(result);
-            lastResult = result;
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String removeReq = sc.next();
 
-            if(removeReq.equals("remove")){
+            if (removeReq.equals("remove")){
                 arrList.remove(0);
+            }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiryReq = sc.next();
+
+            if (inquiryReq.equals("inquiry")){
+                for ( Object list : arrList ) {
+                    System.out.println("[연산 결과 : " + list + "]");
+                }
             }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료)");
