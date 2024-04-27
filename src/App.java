@@ -1,10 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] resultArr = new int[10]; // 연산 결과를 저장하는 배열
-        int lastResult = 0; // 배열의 가장 마지막 결과만 저장
-        int count = 0; // 인덱스 증가에 쓰일 변수
+        ArrayList arrList = new ArrayList(); // 배열에서 List로 변경
+        int lastResult = 0; // List의 가장 마지막 결과만 저장
 
         Scanner sc = new Scanner(System.in);
 
@@ -43,25 +43,21 @@ public class App {
             }
 
             System.out.println("결과: " + result);
+            arrList.add(result);
+            lastResult = result;
 
-            if (count <= 9) {
-                resultArr[count] = result;      // 연산의 결과를 배열에 저장
-                lastResult = resultArr[count];  // 마지막 결과를 lastResult에 저장
-                count++;                        // 인덱스 증가
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String removeReq = sc.next();
 
-            } else if (count >= 10) {
-                for(int i=1; i<resultArr.length; i++){
-                    resultArr[i-1] = resultArr[i];  // 한칸씩 앞으로 배열 값 이동시키기
-                }
-                resultArr[9] = result;
-                lastResult = result;
+            if(removeReq.equals("remove")){
+                arrList.remove(0);
             }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료)");
-            String comment = sc.next();
+            String exitReq = sc.next();
 
-            if (comment.equals("exit")){
-                return; // 나를 호출해준 메소드(main)에게 돌아감
+            if (exitReq.equals("exit")){
+                return;
             }
         }
     }
