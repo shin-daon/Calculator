@@ -3,28 +3,39 @@ import java.util.ArrayList;
 public class Calculator {
     ArrayList<Integer> arrList; // 연산 결과를 저장하는 ArrayList 생성
 
-    public ArrayList<Integer> calculate(int firstNum, int secondNum, char operator) {
+    public Calculator() {
+        this.arrList = new ArrayList<>();
+    }
+
+    public int calculate(int firstNum, int secondNum, char operator) { // 반환타입 int로 수정.. 흑흑
+        int result = 0;
+
         switch (operator) {
             case '+':
-                arrList.add(firstNum + secondNum); // 연산 결과 저장
+                result = firstNum + secondNum; // 연산 결과 저장
                 break;
             case '-':
-                arrList.add(firstNum - secondNum);
+                result = firstNum - secondNum;
                 break;
             case '*':
-                arrList.add(firstNum * secondNum);
+                result = firstNum * secondNum;
                 break;
             case '/':
                 if (secondNum == 0) {
                     throw new CalculateException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다."); // 사용자 정의 예외
                 } else {
-                    arrList.add(firstNum / secondNum);
+                    result = firstNum / secondNum;
                 }
                 break;
             default:
                 throw new CalculateException("올바른 기호가 아닙니다."); // 사용자 정의 예외
         }
 
-        return arrList; // 결과 값 반환
+        arrList.add(result);
+        return result;
+    }
+
+    public ArrayList<Integer> getArrList() { // App class에서 arrList를 가져오기 위해 메소드 생성
+        return arrList;
     }
 }
