@@ -1,25 +1,34 @@
-import java.util.ArrayList;
-
 public class ArithmeticCalculator extends Calculator {
+    private AddOperator addOperator;
+    private SubtractOperator subtractOperator;
+    private MultiplyOperator multiplyOperator;
+    private DivideOperator divideOperator;
+
+    public ArithmeticCalculator() { // 생성자를 통해 사칙연산 초기화
+        this.addOperator = new AddOperator();
+        this.subtractOperator = new SubtractOperator();
+        this.multiplyOperator = new MultiplyOperator();
+        this.divideOperator = new DivideOperator();
+    }
 
     public double calculate(int firstNum, int secondNum, char operator) {
         double result = 0;
 
         switch (operator) {
             case '+':
-                result = firstNum + secondNum;
+                result = addOperator.operate(firstNum, secondNum);
                 break;
             case '-':
-                result = firstNum - secondNum;
+                result = subtractOperator.operate(firstNum, secondNum);
                 break;
             case '*':
-                result = firstNum * secondNum;
+                result = multiplyOperator.operate(firstNum, secondNum);
                 break;
             case '/':
                 if (secondNum == 0) {
                     throw new InputException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 } else {
-                    result = firstNum / secondNum;
+                    result = divideOperator.operate(firstNum, secondNum);
                 }
                 break;
             default:
