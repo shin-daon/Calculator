@@ -30,9 +30,7 @@ public class App {
             String inquiryReq = sc.next();
 
             if (inquiryReq.equals("inquiry")){
-                for ( Integer list : cal.getArrList() ) {
-                   System.out.println("[연산 결과 : " + list + "]");
-                }
+                cal.inquiryResults(); // 조회 메소드로 code 수정
             }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력 시 종료)");

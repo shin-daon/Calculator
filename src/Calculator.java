@@ -46,4 +46,10 @@ public class Calculator {
     public void removeResult() {
         arrList.remove(0);
     }
+
+    public void inquiryResults() {
+        for ( Integer list : arrList ) {
+            System.out.println("[연산 결과 : " + list + "]");
+        }
+    }
 }
