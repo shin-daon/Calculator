@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Calculator {
-    ArrayList<Integer> arrList; // 연산 결과를 저장하는 ArrayList 생성
+    private ArrayList<Integer> arrList; // 외부에서 직접 접근 불가하도록 수정
 
     public Calculator() {
         this.arrList = new ArrayList<>();
@@ -35,7 +35,11 @@ public class Calculator {
         return result;
     }
 
-    public ArrayList<Integer> getArrList() { // App class에서 arrList를 가져오기 위해 메소드 생성
+    public ArrayList<Integer> getArrList() { // App class에서 arrList를 가져오기 위해 Getter 생성
         return arrList;
+    }
+
+    public void setArrList(ArrayList<Integer> arrList) { // Setter
+        this.arrList = arrList;
     }
 }

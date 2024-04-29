@@ -23,14 +23,14 @@ public class App {
             String removeReq = sc.next();
 
             if (removeReq.equals("remove")){
-                cal.arrList.remove(0);
+                cal.getArrList().remove(0); // getter를 통해 가져오도록 코드 수정
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String inquiryReq = sc.next();
 
             if (inquiryReq.equals("inquiry")){
-                for ( Integer list : cal.arrList ) {
+                for ( Integer list : cal.getArrList() ) {
                    System.out.println("[연산 결과 : " + list + "]");
                 }
             }
