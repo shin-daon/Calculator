@@ -42,4 +42,8 @@ public class Calculator {
     public void setArrList(ArrayList<Integer> arrList) { // Setter
         this.arrList = arrList;
     }
+
+    public void removeResult() {
+        arrList.remove(0);
+    }
 }

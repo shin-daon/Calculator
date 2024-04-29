@@ -23,7 +23,7 @@ public class App {
             String removeReq = sc.next();
 
             if (removeReq.equals("remove")){
-                cal.getArrList().remove(0); // getter를 통해 가져오도록 코드 수정
+                cal.removeResult(); // 삭제 메소드로 code 수정
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
