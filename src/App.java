@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArrayList arrList = new ArrayList(); // 배열에서 List로 변경
+        ArrayList<Integer> arrList = new ArrayList<>(); // 배열에서 List로 변경
 
         Scanner sc = new Scanner(System.in);
 
@@ -55,7 +55,7 @@ public class App {
             String inquiryReq = sc.next();
 
             if (inquiryReq.equals("inquiry")){
-                for ( Object list : arrList ) {
+                for ( Integer list : arrList ) {
                     System.out.println("[연산 결과 : " + list + "]");
                 }
             }
