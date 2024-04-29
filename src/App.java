@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Calculator cal = new Calculator(); // 인스턴스 생성
+        Calculator cal = new Calculator(new ArrayList<>()); // 인스턴스 생성 code 수정
 
         Scanner sc = new Scanner(System.in);
 

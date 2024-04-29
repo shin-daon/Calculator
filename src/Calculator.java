@@ -3,16 +3,16 @@ import java.util.ArrayList;
 public class Calculator {
     private ArrayList<Integer> arrList; // 외부에서 직접 접근 불가하도록 수정
 
-    public Calculator() {
-        this.arrList = new ArrayList<>();
+    public Calculator(ArrayList<Integer> arrList) {
+        this.arrList = new ArrayList<>(); // arrList 초기화
     }
 
-    public int calculate(int firstNum, int secondNum, char operator) { // 반환타입 int로 수정.. 흑흑
+    public int calculate(int firstNum, int secondNum, char operator) {
         int result = 0;
 
         switch (operator) {
             case '+':
-                result = firstNum + secondNum; // 연산 결과 저장
+                result = firstNum + secondNum;
                 break;
             case '-':
                 result = firstNum - secondNum;
@@ -22,13 +22,13 @@ public class Calculator {
                 break;
             case '/':
                 if (secondNum == 0) {
-                    throw new CalculateException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다."); // 사용자 정의 예외
+                    throw new CalculateException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 } else {
                     result = firstNum / secondNum;
                 }
                 break;
             default:
-                throw new CalculateException("올바른 기호가 아닙니다."); // 사용자 정의 예외
+                throw new CalculateException("올바른 기호가 아닙니다.");
         }
 
         arrList.add(result);
