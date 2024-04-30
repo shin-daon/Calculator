@@ -3,12 +3,14 @@ public class ArithmeticCalculator extends Calculator {
     private SubtractOperator subtractOperator;
     private MultiplyOperator multiplyOperator;
     private DivideOperator divideOperator;
+    private ModOperator modOperator;
 
     public ArithmeticCalculator() { // 생성자를 통해 사칙연산 초기화
         this.addOperator = new AddOperator();
         this.subtractOperator = new SubtractOperator();
         this.multiplyOperator = new MultiplyOperator();
         this.divideOperator = new DivideOperator();
+        this.modOperator = new ModOperator();
     }
 
     public double calculate(int firstNum, int secondNum, char operator) {
@@ -25,11 +27,10 @@ public class ArithmeticCalculator extends Calculator {
                 result = multiplyOperator.operate(firstNum, secondNum);
                 break;
             case '/':
-                if (secondNum == 0) {
-                    throw new InputException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                } else {
-                    result = divideOperator.operate(firstNum, secondNum);
-                }
+                result = divideOperator.operate(firstNum, secondNum);
+                break;
+            case '%':
+                result = modOperator.operate(firstNum, secondNum);
                 break;
             default:
                 throw new InputException("올바른 기호가 아닙니다.");
